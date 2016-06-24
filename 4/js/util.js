@@ -7,6 +7,11 @@
         var d = date.getDate();
         var dStr = d < 10 ? '0' + d : d.toString();
         return h5.u.str.format('{0}-{1}-{2}', y, mStr, dStr);
+    },
+    formatTime : function (date) {
+        var h = date.getHours();
+        var m = date.getMinutes();
+        return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
     }
   });
   
