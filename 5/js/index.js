@@ -66,7 +66,7 @@
 		'input[name="img"] change': function(context, $el) {
 		},
 
-		'.register click': function(context, $el) {
+		'.confirm click': function(context, $el) {
 		},
 
 	};

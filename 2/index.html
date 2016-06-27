@@ -86,10 +86,41 @@
             <div class="btn-wrap text-center">
                 <div class="btn-group">
                     <button class="cancel">キャンセル</button>
-                    <button class="regist">登録</button>
+                    <button class="confirm">確認する</button>
                 </div>
             </div>
         </form>
     </div>
+    <div class="modal fade" id="confirmModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+      </div>
+    </div>
+    <script type="text/ejs" id="confirm">
+      <table class="table table-striped">
+        <tr>
+          <th>日時</th>
+          <td>[%= reportDate %] [%= startTime %] 〜 [%= endTime %]</td>
+        </tr>
+        <tr>
+          <th>報告区分</th>
+          <td>[%= category %]</td>
+        </tr>
+        <tr>
+          <th>タイトル</th>
+          <td>[%= title %]</td>
+        </tr>
+        <tr>
+          <th>コメント</th>
+          <td>[%:= comment.replace(/\n/g, "<br />") %]</td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="col-sm-offset-4 col-sm-8">
+          <button type="submit" class="register btn btn-default">登録</button>
+        </div>
+      </div>
+    </script> 
 </body>
 </html>

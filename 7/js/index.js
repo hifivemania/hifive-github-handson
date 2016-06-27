@@ -1,7 +1,7 @@
 (function($) {
 	var reportController = {
 		__name: 'handson.ReportController',
-
+		
 		__ready: function() {
 			this.$find('input[name="reportDate"]').val(
     		handson.utils.formatDateWithHyphen(new Date())
@@ -84,8 +84,38 @@
 		},
 
 		'.confirm click': function(context, $el) {
+			// 初期化
+			context.event.preventDefault();
+			$('.modal-content').empty();
+			
+			// パラメータの設定
+			var params = {};
+			var ary = $('form').serializeArray();
+			for (i in ary) {
+				params[ary[i].name] = ary[i].value;
+			}
+			
+			// 複数行対応分のエスケープ処理
+			params.comment = handson.utils.escapeHTML(params.comment)
+			
+			// ビューの設定
+			this.view.append('.modal-content', 'confirm', params);
+			
+			// モーダル表示
+			$('#confirmModal').modal();
 		},
-
+		
+		'.register click': function(context, $el) {
+			// Ajaxの擬似的実行
+			h5.ajax({
+				type: 'post',
+				data: $('form').serialize(),
+				url: '/register'
+			}).then(function() {
+				alert('登録しました');
+				$('#confirmModal').modal('hide');
+			})
+		}
 	};
 	
 	h5.core.expose(reportController);
@@ -93,4 +123,3 @@
 $(function() {
 	h5.core.controller(document.body, handson.ReportController);
 });
-
