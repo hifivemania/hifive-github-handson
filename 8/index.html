@@ -59,7 +59,7 @@
                                 <label class="col-sm-3 control-label" for="startTime">勤務時間</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input id="startTime" name="startTime" type="time" class="form-control">
+                                        <input id="startTime" name="startTime" type="time" class="form-control" data-required />
                                         <span class="input-group-addon">～</span>
                                         <input id="endTime" name="endTime" type="time" class="form-control">
                                     </div>
@@ -76,20 +76,20 @@
                                   <div class="form-group">
                                      <label class="col-sm-2 control-label" for="category">報告区分</label>
                                      <div class="col-sm-10">
-                                       <input id="category" name="category" type="text" class="form-control">
+                                       <input id="category" name="category" type="text" class="form-control" data-required />
                                      </div>
                                   </div>
                               </div>
                               <div class="col-sm-6">
                                   <div class="form-group">
                                      <label class="col-sm-3 control-label" for="title">タイトル</label>
-                                     <div class="col-sm-9"><input id="title" name="title" type="text"  class="form-control"></div>
+                                     <div class="col-sm-9"><input id="title" name="title" type="text"  class="form-control" data-required /></div>
                                   </div>
                               </div>
                           </div>
                           <div class="section-content  form-group">
                              <label class="col-sm-1 control-label" for="comment">報告内容</label>
-                             <div class="col-sm-11 comment"><textarea id="comment" name="comment"  class="form-control"></textarea></div>
+                             <div class="col-sm-11 comment"><textarea id="comment" name="comment"  class="form-control" data-required data-size="[10,200]" /></textarea></div>
                           </div>
                           <div class="section-img form-group">
                               <label class="col-sm-1 control-label">添付画像</label>
