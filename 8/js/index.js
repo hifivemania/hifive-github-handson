@@ -33,17 +33,14 @@
 						wrapper: 'div'
 					},
 				},
-				property: {
-					title: {
-						displayName: 'タイトル'
-					},
-					category: {
-						displayName: '報告区分'
-					},
-					comment: {
-						displayName: '報告内容'
-					}
-				},
+				property: function() {
+					var results = {};
+					$.each(['title', 'category', 'comment'], function(i, name) {
+						var ele = $("input[name='"+name+"'],textarea[name='"+name+"']");
+						results[name] = {displayName: ele.parents('.form-group').text().trim()};
+					});
+					return results;
+				}()
 			});
 		},
 		
@@ -70,7 +67,6 @@
 		'.confirm click': function(context, $el) {
 			// 初期化
 			context.event.preventDefault();
-			$('.modal-content').empty();
 			
 			// バリデーション実行
 			if (!this._formController.validate().isValid) {
@@ -90,7 +86,7 @@
 			params.comment = handson.utils.escapeHTML(params.comment)
 			
 			// ビューの設定
-			this.view.append('.modal-content', 'confirm', params);
+			this.view.update('.modal-content', 'confirm', params);
 			
 			// モーダル表示
 			$('#confirmModal').modal();
