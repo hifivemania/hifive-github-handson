@@ -12,9 +12,6 @@
         var h = date.getHours();
         var m = date.getMinutes();
         return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-    },
-    escapeHTML: function(html) {
-      return $('<div>').text(html).html();
     }
   });
   
